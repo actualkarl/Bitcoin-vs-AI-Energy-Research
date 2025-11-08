@@ -68,14 +68,14 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
 
-    /* Animated Gradient Background */
+    /* Dark High-Contrast Background */
     background: linear-gradient(
         135deg,
-        var(--color-primary) 0%,
-        var(--color-secondary) 25%,
-        var(--color-accent-1) 50%,
-        var(--color-accent-2) 75%,
-        var(--color-accent-3) 100%
+        #0a0e27 0%,
+        #1a1f3a 25%,
+        #0f1419 50%,
+        #1a1625 75%,
+        #0d1b2a 100%
     );
     background-size: 400% 400%;
     animation: gradientShift 15s ease infinite;
@@ -150,9 +150,10 @@ a:hover {
     z-index: 1000;
     backdrop-filter: blur(var(--blur-strong));
     -webkit-backdrop-filter: blur(var(--blur-strong));
-    background: rgba(255, 255, 255, 0.08);
-    border-bottom: 1px solid var(--glass-border);
+    background: rgba(10, 14, 30, 0.95);
+    border-bottom: 2px solid rgba(100, 120, 255, 0.4);
     padding: var(--spacing-sm) 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .header-content {
@@ -176,19 +177,22 @@ a:hover {
 }
 
 .btn-icon {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
+    background: rgba(20, 30, 50, 0.8);
+    border: 2px solid rgba(100, 120, 255, 0.5);
     border-radius: 10px;
     padding: 0.5rem 1rem;
     font-size: 1.25rem;
     cursor: pointer;
     transition: all var(--transition-speed) ease;
     backdrop-filter: blur(10px);
+    color: #ffffff;
 }
 
 .btn-icon:hover {
     transform: scale(1.05);
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(30, 40, 70, 0.95);
+    border-color: rgba(100, 150, 255, 0.8);
+    box-shadow: 0 4px 15px rgba(100, 120, 255, 0.4);
 }
 
 /* ============================================
@@ -203,20 +207,21 @@ a:hover {
    Glassmorphic Card (Core Component)
    ============================================ */
 .glass-card {
-    background: var(--glass-bg);
+    background: rgba(20, 25, 40, 0.85);
     backdrop-filter: blur(var(--blur-amount));
     -webkit-backdrop-filter: blur(var(--blur-amount));
     border-radius: var(--border-radius);
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 8px 32px 0 var(--glass-shadow);
+    border: 1px solid rgba(100, 120, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
     padding: var(--spacing-md);
     transition: all var(--transition-speed) ease;
 }
 
 .glass-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 48px 0 rgba(31, 38, 135, 0.5);
-    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 12px 48px 0 rgba(100, 120, 255, 0.4);
+    border-color: rgba(100, 120, 255, 0.5);
+    background: rgba(25, 30, 50, 0.9);
 }
 
 /* ============================================
@@ -236,12 +241,15 @@ a:hover {
     text-align: center;
     padding: var(--spacing-md);
     position: relative;
+    background: rgba(15, 20, 35, 0.9);
+    border: 2px solid rgba(100, 120, 255, 0.3);
 }
 
 .summary-card .card-icon {
     font-size: 3rem;
     margin-bottom: var(--spacing-sm);
     display: block;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
 }
 
 .summary-card .card-number {
@@ -249,13 +257,14 @@ a:hover {
     font-weight: 800;
     line-height: 1;
     margin-bottom: 0.25rem;
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    text-shadow: 0 0 20px rgba(100, 200, 255, 0.8), 0 4px 8px rgba(0, 0, 0, 0.8);
+    color: #ffffff;
 }
 
 .summary-card .card-unit {
     font-size: 1.25rem;
     font-weight: 600;
-    opacity: 0.9;
+    color: #e0e6ff;
     margin-bottom: var(--spacing-xs);
 }
 
@@ -263,11 +272,12 @@ a:hover {
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: var(--spacing-xs);
+    color: #c8d0ff;
 }
 
 .summary-card .card-subtext {
     font-size: var(--font-size-sm);
-    opacity: 0.8;
+    color: #a0b0ff;
     font-weight: 400;
 }
 
@@ -289,11 +299,13 @@ a:hover {
 .chart-title {
     font-size: var(--font-size-2xl);
     margin-bottom: 0.5rem;
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(100, 150, 255, 0.5);
 }
 
 .chart-subtitle {
     font-size: var(--font-size-base);
-    opacity: 0.85;
+    color: #b8c5ff;
     font-weight: 400;
 }
 
@@ -319,11 +331,12 @@ a:hover {
    Footer
    ============================================ */
 .footer {
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(5, 10, 20, 0.95);
     backdrop-filter: blur(10px);
-    border-top: 1px solid var(--glass-border);
+    border-top: 2px solid rgba(100, 120, 255, 0.4);
     padding: var(--spacing-md) 0;
     margin-top: var(--spacing-xl);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .footer-content {
@@ -332,7 +345,7 @@ a:hover {
 
 .footer-content p {
     font-size: var(--font-size-sm);
-    opacity: 0.8;
+    color: #c0d0ff;
     margin-bottom: var(--spacing-xs);
 }
 
@@ -464,14 +477,16 @@ a:hover {
 .country-card {
     padding: var(--spacing-md);
     border-radius: var(--border-radius);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(100, 120, 255, 0.4);
     text-align: center;
     transition: all var(--transition-speed) ease;
+    background: rgba(15, 20, 35, 0.6);
 }
 
 .country-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 48px 0 rgba(31, 38, 135, 0.5);
+    box-shadow: 0 12px 48px 0 rgba(100, 120, 255, 0.4);
+    border-color: rgba(100, 150, 255, 0.6);
 }
 
 .country-flag {
@@ -483,28 +498,31 @@ a:hover {
     font-size: 1.75rem;
     font-weight: 700;
     margin-bottom: var(--spacing-xs);
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 2px 10px rgba(100, 150, 255, 0.5);
+    color: #ffffff;
 }
 
 .country-value {
     font-size: 2.5rem;
     font-weight: 800;
     margin-bottom: var(--spacing-xs);
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    text-shadow: 0 0 20px rgba(100, 200, 255, 0.8), 0 4px 8px rgba(0, 0, 0, 0.8);
+    color: #ffffff;
 }
 
 .country-label {
     font-size: 1rem;
-    opacity: 0.9;
+    color: #b8c8ff;
     margin-bottom: var(--spacing-sm);
 }
 
 .comparison-bar {
     height: 12px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(20, 30, 50, 0.8);
     border-radius: 6px;
     overflow: hidden;
     margin-top: var(--spacing-sm);
+    border: 1px solid rgba(100, 120, 255, 0.3);
 }
 
 .bar-fill {
@@ -540,16 +558,17 @@ a:hover {
 
 .insight-item {
     padding: var(--spacing-md);
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(15, 20, 35, 0.8);
     border-radius: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(100, 120, 255, 0.3);
     transition: all var(--transition-speed) ease;
 }
 
 .insight-item:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(20, 25, 40, 0.95);
+    border-color: rgba(100, 150, 255, 0.6);
     transform: translateX(5px);
+    box-shadow: 0 4px 20px rgba(100, 120, 255, 0.3);
 }
 
 .insight-icon {
@@ -561,12 +580,13 @@ a:hover {
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: var(--spacing-xs);
+    color: #e8f0ff;
 }
 
 .insight-item p {
     font-size: 0.95rem;
     line-height: 1.6;
-    opacity: 0.9;
+    color: #b8c8ff;
 }
 
 /* Responsive for insights */
