@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interactive dashboard comparing Bitcoin mining and AI infrastructure power consumption from 2015-2030. Featuring modern glassmorphism design and data visualizations.">
+    <meta name="keywords" content="Bitcoin, AI, energy consumption, power usage, data visualization, dashboard">
+    <meta name="author" content="Karl Hartley">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://actualkarl.github.io/Bitcoin-vs-AI-Energy-Research/">
+    <meta property="og:title" content="Bitcoin vs AI Power Dashboard - Energy Consumption Analysis">
+    <meta property="og:description" content="Interactive comparison of Bitcoin mining and AI infrastructure power consumption (2015-2030)">
+    <meta property="og:image" content="https://actualkarl.github.io/Bitcoin-vs-AI-Energy-Research/assets/preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://actualkarl.github.io/Bitcoin-vs-AI-Energy-Research/">
+    <meta property="twitter:title" content="Bitcoin vs AI Power Dashboard">
+    <meta property="twitter:description" content="Interactive energy consumption analysis dashboard">
+    <meta property="twitter:image" content="https://actualkarl.github.io/Bitcoin-vs-AI-Energy-Research/assets/preview.png">
+
+    <title>⚡ Bitcoin vs AI Power Dashboard | Energy Consumption Analysis 2015-2030</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+
+    <!-- ApexCharts Library -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-left">
+                    <h1 class="logo">⚡ Bitcoin vs AI Power Dashboard</h1>
+                    <p class="subtitle">Energy Consumption Analysis 2015-2030</p>
+                </div>
+                <div class="header-right">
+                    <!-- Dark mode toggle placeholder for Phase 2 -->
+                    <button class="btn-icon" id="darkModeToggle" aria-label="Toggle dark mode" style="display: none;">
+                        🌙
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+
+            <!-- Executive Summary Cards -->
+            <section class="summary-section" aria-label="Executive Summary">
+                <div class="summary-grid">
+                    <!-- Card 1: Bitcoin -->
+                    <div class="glass-card summary-card animate-on-scroll">
+                        <div class="card-icon">⚡</div>
+                        <div class="card-number" data-target="173">0</div>
+                        <div class="card-unit">TWh</div>
+                        <div class="card-label">Bitcoin Mining (2025)</div>
+                        <div class="card-subtext">= Poland's annual consumption</div>
+                    </div>
+
+                    <!-- Card 2: AI -->
+                    <div class="glass-card summary-card animate-on-scroll">
+                        <div class="card-icon">🤖</div>
+                        <div class="card-number" data-target="220">0</div>
+                        <div class="card-unit">TWh</div>
+                        <div class="card-label">AI Infrastructure (2025)</div>
+                        <div class="card-subtext">= Spain's annual consumption</div>
+                    </div>
+
+                    <!-- Card 3: Total Impact -->
+                    <div class="glass-card summary-card animate-on-scroll">
+                        <div class="card-icon">🌍</div>
+                        <div class="card-number" data-target="393">0</div>
+                        <div class="card-unit">TWh</div>
+                        <div class="card-label">Combined Total</div>
+                        <div class="card-subtext">+1730% growth since 2015</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Visualization 1: Multi-Line Time Series -->
+            <section class="chart-section animate-on-scroll">
+                <div class="glass-card chart-card">
+                    <div class="chart-header">
+                        <h2 class="chart-title">Power Consumption Over Time</h2>
+                        <p class="chart-subtitle">Bitcoin vs AI: 2015-2025 Historical Trends</p>
+                    </div>
+                    <div id="chart-timeline" class="chart-container"></div>
+                </div>
+            </section>
+
+            <!-- Visualization 2: Stacked Area Breakdown -->
+            <section class="chart-section animate-on-scroll">
+                <div class="glass-card chart-card">
+                    <div class="chart-header">
+                        <h2 class="chart-title">Data Center Energy Breakdown</h2>
+                        <p class="chart-subtitle">Evolution of workload types in global data centers</p>
+                    </div>
+                    <div id="chart-breakdown" class="chart-container"></div>
+                </div>
+            </section>
+
+            <!-- Visualization 3: Geographic Distribution -->
+            <section class="chart-section animate-on-scroll">
+                <div class="glass-card chart-card">
+                    <div class="chart-header">
+                        <h2 class="chart-title">Geographic Distribution (2025)</h2>
+                        <p class="chart-subtitle">Regional power consumption comparison</p>
+                    </div>
+                    <div class="chart-dual-container">
+                        <div class="chart-half">
+                            <h3>Bitcoin Mining</h3>
+                            <div id="chart-geo-bitcoin" class="chart-container"></div>
+                        </div>
+                        <div class="chart-half">
+                            <h3>AI Infrastructure</h3>
+                            <div id="chart-geo-ai" class="chart-container"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Visualization 4: Efficiency Comparison -->
+            <section class="chart-section animate-on-scroll">
+                <div class="glass-card chart-card">
+                    <div class="chart-header">
+                        <h2 class="chart-title">Efficiency Improvements Over Time</h2>
+                        <p class="chart-subtitle">Energy per transaction/inference trending downward</p>
+                    </div>
+                    <div id="chart-efficiency" class="chart-container"></div>
+                </div>
+            </section>
+
+            <!-- Visualization 5: Country Equivalents -->
+            <section class="chart-section animate-on-scroll">
+                <div class="glass-card chart-card">
+                    <div class="chart-header">
+                        <h2 class="chart-title">Country Power Equivalents</h2>
+                        <p class="chart-subtitle">Comparing to national energy consumption (2025)</p>
+                    </div>
+                    <div id="chart-countries" class="chart-container"></div>
+                </div>
+            </section>
+
+            <!-- Visualization 6: Renewable Energy -->
+            <section class="chart-section animate-on-scroll">
+                <div class="glass-card chart-card">
+                    <div class="chart-header">
+                        <h2 class="chart-title">Renewable Energy Adoption</h2>
+                        <p class="chart-subtitle">AI leads Bitcoin by 9 percentage points in 2025</p>
+                    </div>
+                    <div id="chart-renewable" class="chart-container"></div>
+                </div>
+            </section>
+
+            <!-- Visualization 7: Future Projections -->
+            <section class="chart-section animate-on-scroll">
+                <div class="glass-card chart-card">
+                    <div class="chart-header">
+                        <h2 class="chart-title">Future Growth Projections (2025-2030)</h2>
+                        <p class="chart-subtitle">AI projected to grow 4× faster than Bitcoin</p>
+                    </div>
+                    <div id="chart-projections" class="chart-container"></div>
+                </div>
+            </section>
+
+            <!-- Key Insights Section -->
+            <section class="insights-section animate-on-scroll">
+                <div class="glass-card">
+                    <div class="chart-header">
+                        <h2 class="chart-title">🔍 Key Insights</h2>
+                        <p class="chart-subtitle">Important findings from the data</p>
+                    </div>
+                    <div class="insights-grid">
+                        <div class="insight-item">
+                            <div class="insight-icon">📈</div>
+                            <h3>AI Surpasses Bitcoin in 2025</h3>
+                            <p>AI infrastructure power consumption overtakes Bitcoin mining for the first time, marking a significant inflection point in technology energy demands.</p>
+                        </div>
+                        <div class="insight-item">
+                            <div class="insight-icon">⚡</div>
+                            <h3>4× Faster Growth Projected</h3>
+                            <p>By 2030, AI could consume 4× more power than Bitcoin (800 vs 200 TWh), with AI growing 264% vs Bitcoin's 16%.</p>
+                        </div>
+                        <div class="insight-item">
+                            <div class="insight-icon">♻️</div>
+                            <h3>AI Leads in Renewable Energy</h3>
+                            <p>AI infrastructure leads Bitcoin by 9 percentage points in renewable energy adoption (68% vs 59% in 2025).</p>
+                        </div>
+                        <div class="insight-item">
+                            <div class="insight-icon">🌍</div>
+                            <h3>National Scale Comparison</h3>
+                            <p>Bitcoin mining equals Poland's energy consumption (173 TWh), while AI infrastructure equals Spain's (220 TWh) in 2025.</p>
+                        </div>
+                        <div class="insight-item">
+                            <div class="insight-icon">📊</div>
+                            <h3>Efficiency Gains Continue</h3>
+                            <p>Both technologies show significant efficiency improvements: Bitcoin down 48% per transaction, AI down 78% per inference since 2015.</p>
+                        </div>
+                        <div class="insight-item">
+                            <div class="insight-icon">🏢</div>
+                            <h3>Data Center Transformation</h3>
+                            <p>AI workloads now represent 53% of data center power (220/415 TWh), up from just 2% in 2015.</p>
+                        </div>
+                        <div class="insight-item">
+                            <div class="insight-icon">🗺️</div>
+                            <h3>Geographic Concentration</h3>
+                            <p>North America dominates AI infrastructure (55%), while Bitcoin mining is more globally distributed (38% NA, 35% APAC).</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-sources">
+                    <strong>Data Sources:</strong> Cambridge CBECI, IEA Reports, Digiconomist, Academic Research
+                </p>
+                <p class="footer-links">
+                    <a href="https://github.com/actualkarl/Bitcoin-vs-AI-Energy-Research" target="_blank" rel="noopener">
+                        View on GitHub
+                    </a>
+                </p>
+                <p class="footer-copyright">
+                    © 2025 Karl Hartley | MIT License | Educational purposes only
+                </p>
+                <p class="footer-disclaimer">
+                    Estimated data from publicly available sources. Actual values may vary.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="js/data.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
