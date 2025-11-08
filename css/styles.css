@@ -1,0 +1,452 @@
+/* ============================================
+   Bitcoin vs AI Power Dashboard - Main Styles
+   Glassmorphism Design System
+   ============================================ */
+
+/* ============================================
+   CSS Custom Properties (Variables)
+   ============================================ */
+:root {
+    /* Colors */
+    --color-primary: #667eea;
+    --color-secondary: #764ba2;
+    --color-accent-1: #f093fb;
+    --color-accent-2: #f5576c;
+    --color-accent-3: #4facfe;
+
+    /* Bitcoin & AI Brand Colors */
+    --color-bitcoin: #f5576c;
+    --color-ai-training: #667eea;
+    --color-ai-inference: #764ba2;
+    --color-gold: #f0a500;
+
+    /* Glass Effect */
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-shadow: rgba(31, 38, 135, 0.37);
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 4rem;
+
+    /* Typography */
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-size-base: 1rem;
+    --font-size-sm: 0.875rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.5rem;
+    --font-size-2xl: 2rem;
+    --font-size-3xl: 2.5rem;
+
+    /* Effects */
+    --blur-amount: 20px;
+    --blur-strong: 30px;
+    --transition-speed: 0.3s;
+    --border-radius: 20px;
+}
+
+/* ============================================
+   Reset & Base Styles
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-family);
+    color: #ffffff;
+    line-height: 1.6;
+    overflow-x: hidden;
+
+    /* Animated Gradient Background */
+    background: linear-gradient(
+        135deg,
+        var(--color-primary) 0%,
+        var(--color-secondary) 25%,
+        var(--color-accent-1) 50%,
+        var(--color-accent-2) 75%,
+        var(--color-accent-3) 100%
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    min-height: 100vh;
+}
+
+/* Gradient Animation Keyframe */
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* ============================================
+   Typography
+   ============================================ */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    font-size: var(--font-size-3xl);
+    font-weight: 800;
+}
+
+h2 {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+}
+
+h3 {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+}
+
+p {
+    font-size: var(--font-size-base);
+    font-weight: 400;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: opacity var(--transition-speed) ease;
+}
+
+a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+/* ============================================
+   Layout Components
+   ============================================ */
+.container {
+    max-width: 100%;
+    padding: var(--spacing-sm);
+    margin: 0 auto;
+}
+
+/* ============================================
+   Header (Sticky Navigation)
+   ============================================ */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(var(--blur-strong));
+    -webkit-backdrop-filter: blur(var(--blur-strong));
+    background: rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid var(--glass-border);
+    padding: var(--spacing-sm) 0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.header-left .logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 0.25rem;
+}
+
+.header-left .subtitle {
+    font-size: var(--font-size-sm);
+    opacity: 0.9;
+    font-weight: 400;
+}
+
+.btn-icon {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+    backdrop-filter: blur(10px);
+}
+
+.btn-icon:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* ============================================
+   Main Content
+   ============================================ */
+.main-content {
+    padding: var(--spacing-lg) 0;
+    min-height: calc(100vh - 200px);
+}
+
+/* ============================================
+   Glassmorphic Card (Core Component)
+   ============================================ */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--blur-amount));
+    -webkit-backdrop-filter: blur(var(--blur-amount));
+    border-radius: var(--border-radius);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px 0 var(--glass-shadow);
+    padding: var(--spacing-md);
+    transition: all var(--transition-speed) ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 48px 0 rgba(31, 38, 135, 0.5);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* ============================================
+   Summary Cards Section
+   ============================================ */
+.summary-section {
+    margin-bottom: var(--spacing-lg);
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.summary-card {
+    text-align: center;
+    padding: var(--spacing-md);
+    position: relative;
+}
+
+.summary-card .card-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-sm);
+    display: block;
+}
+
+.summary-card .card-number {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.summary-card .card-unit {
+    font-size: 1.25rem;
+    font-weight: 600;
+    opacity: 0.9;
+    margin-bottom: var(--spacing-xs);
+}
+
+.summary-card .card-label {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+}
+
+.summary-card .card-subtext {
+    font-size: var(--font-size-sm);
+    opacity: 0.8;
+    font-weight: 400;
+}
+
+/* ============================================
+   Chart Sections
+   ============================================ */
+.chart-section {
+    margin-bottom: var(--spacing-lg);
+}
+
+.chart-card {
+    padding: var(--spacing-md);
+}
+
+.chart-header {
+    margin-bottom: var(--spacing-md);
+}
+
+.chart-title {
+    font-size: var(--font-size-2xl);
+    margin-bottom: 0.5rem;
+}
+
+.chart-subtitle {
+    font-size: var(--font-size-base);
+    opacity: 0.85;
+    font-weight: 400;
+}
+
+.chart-container {
+    min-height: 400px;
+    position: relative;
+}
+
+/* Dual Chart Container (for side-by-side charts) */
+.chart-dual-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+}
+
+.chart-half h3 {
+    text-align: center;
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.25rem;
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+.footer {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--glass-border);
+    padding: var(--spacing-md) 0;
+    margin-top: var(--spacing-xl);
+}
+
+.footer-content {
+    text-align: center;
+}
+
+.footer-content p {
+    font-size: var(--font-size-sm);
+    opacity: 0.8;
+    margin-bottom: var(--spacing-xs);
+}
+
+.footer-sources {
+    font-weight: 500;
+}
+
+.footer-links a {
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color var(--transition-speed) ease;
+}
+
+.footer-links a:hover {
+    border-bottom-color: #ffffff;
+}
+
+.footer-copyright {
+    margin-top: var(--spacing-sm);
+}
+
+.footer-disclaimer {
+    font-size: 0.75rem;
+    opacity: 0.6;
+    font-style: italic;
+}
+
+/* ============================================
+   Responsive Design - Media Queries
+   ============================================ */
+
+/* Tablet: 768px and up */
+@media (min-width: 768px) {
+    .container {
+        padding: var(--spacing-md);
+    }
+
+    .summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .chart-dual-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .header-left .logo {
+        font-size: 2rem;
+    }
+}
+
+/* Desktop: 1024px and up */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .summary-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .chart-container {
+        min-height: 450px;
+    }
+}
+
+/* Large Desktop: 1440px and up */
+@media (min-width: 1440px) {
+    .container {
+        padding: var(--spacing-lg);
+    }
+
+    .chart-container {
+        min-height: 500px;
+    }
+
+    .main-content {
+        padding: var(--spacing-xl) 0;
+    }
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+.text-center {
+    text-align: center;
+}
+
+.mt-1 { margin-top: var(--spacing-xs); }
+.mt-2 { margin-top: var(--spacing-sm); }
+.mt-3 { margin-top: var(--spacing-md); }
+.mt-4 { margin-top: var(--spacing-lg); }
+
+.mb-1 { margin-bottom: var(--spacing-xs); }
+.mb-2 { margin-bottom: var(--spacing-sm); }
+.mb-3 { margin-bottom: var(--spacing-md); }
+.mb-4 { margin-bottom: var(--spacing-lg); }
+
+/* Accessibility: Focus Visible */
+*:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.8);
+    outline-offset: 4px;
+}
+
+/* ============================================
+   Loading State (Optional)
+   ============================================ */
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    font-size: 1.25rem;
+    opacity: 0.7;
+}

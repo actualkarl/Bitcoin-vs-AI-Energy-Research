@@ -1,0 +1,323 @@
+/* ============================================
+   Bitcoin vs AI Power Dashboard - Animations
+   Entrance animations, transitions, and effects
+   ============================================ */
+
+/* ============================================
+   Entrance Animations
+   ============================================ */
+
+/* Fade In Up Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade In Left Animation */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Fade In Right Animation */
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Fade In (Simple) */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Scale In Animation */
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ============================================
+   Animation Classes
+   ============================================ */
+
+/* Apply to elements that should animate on scroll */
+.animate-on-scroll {
+    opacity: 0;
+}
+
+.animate-on-scroll.animate-in {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Staggered Animation Delays for Cards */
+.summary-card:nth-child(1) {
+    animation: fadeInUp 0.6s ease-out 0.1s forwards;
+}
+
+.summary-card:nth-child(2) {
+    animation: fadeInUp 0.6s ease-out 0.2s forwards;
+}
+
+.summary-card:nth-child(3) {
+    animation: fadeInUp 0.6s ease-out 0.3s forwards;
+}
+
+/* Chart sections with stagger */
+.chart-section:nth-child(1) {
+    animation: fadeInUp 0.8s ease-out 0.2s forwards;
+}
+
+.chart-section:nth-child(2) {
+    animation: fadeInUp 0.8s ease-out 0.3s forwards;
+}
+
+.chart-section:nth-child(3) {
+    animation: fadeInUp 0.8s ease-out 0.4s forwards;
+}
+
+/* ============================================
+   Number Count-Up Animation
+   (Applied via JavaScript)
+   ============================================ */
+.card-number {
+    transition: all 0.3s ease;
+}
+
+/* ============================================
+   Hover & Interaction Animations
+   ============================================ */
+
+/* Glass Card Hover Effect */
+.glass-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 16px 56px 0 rgba(31, 38, 135, 0.5);
+}
+
+/* Summary Card Hover Pulse */
+.summary-card:hover .card-number {
+    transform: scale(1.1);
+    text-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Button Hover Effect */
+.btn-icon {
+    transition: all 0.3s ease;
+}
+
+.btn-icon:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.btn-icon:active {
+    transform: scale(0.95);
+}
+
+/* ============================================
+   Loading Spinner Animation
+   ============================================ */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner {
+    animation: spin 1s linear infinite;
+}
+
+/* ============================================
+   Pulse Animation (for highlighting)
+   ============================================ */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
+
+.pulse {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* ============================================
+   Shimmer Effect (for loading states)
+   ============================================ */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.shimmer {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.1) 25%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0.1) 75%
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 2s linear infinite;
+}
+
+/* ============================================
+   Slide In Animations (for future use)
+   ============================================ */
+@keyframes slideInFromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   Bounce Animation (for attention-grabbing)
+   ============================================ */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.bounce {
+    animation: bounce 1s ease-in-out infinite;
+}
+
+/* ============================================
+   Glow Effect Animation
+   ============================================ */
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+    }
+}
+
+.glow {
+    animation: glow 2s ease-in-out infinite;
+}
+
+/* ============================================
+   Chart Animation (Applied when chart renders)
+   ============================================ */
+.chart-container {
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* ============================================
+   Smooth Transitions for All Interactive Elements
+   ============================================ */
+button, a, .interactive {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
+   Reduced Motion Support (Accessibility)
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ============================================
+   Page Load Animation
+   ============================================ */
+@keyframes pageLoad {
+    from {
+        opacity: 0;
+        filter: blur(10px);
+    }
+    to {
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+body {
+    animation: pageLoad 0.5s ease-out;
+}
+
+/* ============================================
+   Tooltip Animation (for future tooltips)
+   ============================================ */
+@keyframes tooltipFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tooltip {
+    animation: tooltipFadeIn 0.2s ease-out;
+}
