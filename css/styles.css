@@ -543,6 +543,211 @@ a:hover {
 }
 
 /* ============================================
+   Economic & Social Benefits Section
+   ============================================ */
+.benefits-section {
+    margin-bottom: var(--spacing-lg);
+}
+
+.benefits-comparison {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-md);
+}
+
+.benefit-column {
+    background: rgba(10, 15, 25, 0.6);
+    border-radius: 15px;
+    padding: var(--spacing-md);
+    border: 2px solid rgba(100, 120, 255, 0.3);
+    transition: all var(--transition-speed) ease;
+}
+
+.benefit-column:hover {
+    border-color: rgba(100, 150, 255, 0.5);
+    background: rgba(15, 20, 30, 0.8);
+}
+
+.benefit-header {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 2px solid rgba(100, 120, 255, 0.2);
+}
+
+.benefit-icon {
+    font-size: 3.5rem;
+    margin-bottom: var(--spacing-sm);
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.6));
+}
+
+.benefit-header h3 {
+    font-size: 1.75rem;
+    margin-bottom: var(--spacing-xs);
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(100, 150, 255, 0.5);
+}
+
+.benefit-power {
+    font-size: 1.1rem;
+    color: #a0b0ff;
+    font-weight: 600;
+}
+
+.benefit-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.benefit-item {
+    display: flex;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    background: rgba(20, 25, 40, 0.4);
+    border-radius: 12px;
+    border: 1px solid rgba(100, 120, 255, 0.2);
+    transition: all var(--transition-speed) ease;
+}
+
+.benefit-item:hover {
+    background: rgba(25, 30, 45, 0.6);
+    border-color: rgba(100, 150, 255, 0.4);
+    transform: translateX(5px);
+}
+
+.benefit-emoji {
+    font-size: 2rem;
+    flex-shrink: 0;
+    width: 2.5rem;
+    text-align: center;
+}
+
+.benefit-content {
+    flex: 1;
+}
+
+.benefit-content h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #e8f0ff;
+}
+
+.benefit-content p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #b8c8ff;
+    margin-bottom: 0.5rem;
+}
+
+.benefit-stat {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: #7890ff;
+    background: rgba(100, 120, 255, 0.15);
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    border: 1px solid rgba(100, 120, 255, 0.3);
+    font-weight: 600;
+}
+
+/* Value-to-Energy Ratio Section */
+.value-ratio-section {
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-lg);
+    border-top: 2px solid rgba(100, 120, 255, 0.2);
+}
+
+.section-subtitle {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(100, 150, 255, 0.5);
+}
+
+.ratio-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.ratio-card {
+    background: rgba(15, 20, 35, 0.8);
+    padding: var(--spacing-md);
+    border-radius: 15px;
+    border: 2px solid rgba(100, 120, 255, 0.3);
+    text-align: center;
+    transition: all var(--transition-speed) ease;
+}
+
+.ratio-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(100, 150, 255, 0.6);
+    box-shadow: 0 8px 30px rgba(100, 120, 255, 0.3);
+}
+
+.ratio-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #c8d0ff;
+    margin-bottom: 0.5rem;
+}
+
+.ratio-value {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 20px rgba(100, 200, 255, 0.8), 0 4px 8px rgba(0, 0, 0, 0.8);
+}
+
+.ratio-description {
+    font-size: 0.95rem;
+    color: #a0b0ff;
+    margin-bottom: 0.5rem;
+}
+
+.ratio-calc {
+    font-size: 0.85rem;
+    color: #7890ff;
+    font-family: 'Courier New', monospace;
+    background: rgba(100, 120, 255, 0.1);
+    padding: 0.5rem;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+.ratio-note {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #b8c8ff;
+    background: rgba(100, 120, 255, 0.1);
+    padding: var(--spacing-sm);
+    border-radius: 10px;
+    border-left: 4px solid rgba(100, 150, 255, 0.6);
+    margin-top: var(--spacing-md);
+}
+
+.ratio-note strong {
+    color: #e8f0ff;
+}
+
+/* Responsive for benefits section */
+@media (min-width: 1024px) {
+    .benefits-comparison {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ratio-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ============================================
    Key Insights Section
    ============================================ */
 .insights-section {
